@@ -55,3 +55,6 @@ function playGame() {
 const gameResult = playGame();
 console.log(gameResult.roundHistory);
 console.log(gameResult.finalResult);
+
+
+module.exports = { getRandomChoice, determineWinner, playGame };

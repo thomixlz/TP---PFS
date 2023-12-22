@@ -28,8 +28,10 @@ function playGame() {
   let roundHistory = [];
   let player1Wins = 0;
   let player2Wins = 0;
+  let round = 1;
 
-  for (let round = 1; round <= 3; round++) {
+  // Continuez à jouer jusqu'à ce qu'un joueur gagne 2 tours
+  while (player1Wins < 2 && player2Wins < 2) {
     const player1Choice = getRandomChoice();
     const player2Choice = getRandomChoice();
     const result = determineWinner(player1Choice, player2Choice);
@@ -39,14 +41,15 @@ function playGame() {
     if (result === 'Joueur 1 gagne') player1Wins++;
     if (result === 'Joueur 2 gagne') player2Wins++;
 
-    if (player1Wins === 2 || player2Wins === 2) break;
+    round++;
   }
 
   return {
     roundHistory,
-    finalResult: player1Wins > player2Wins ? 'Joueur 1 remporte la partie' : player2Wins > player1Wins ? 'Joueur 2 remporte la partie' : 'Match nul'
+    finalResult: player1Wins > player2Wins ? 'Joueur 1 remporte la partie' : 'Joueur 2 remporte la partie'
   };
 }
+
 
 // Exécution du jeu
 const gameResult = playGame();

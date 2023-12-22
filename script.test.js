@@ -1,4 +1,4 @@
-const { determineWinner } = require('../src/script.js'); 
+const { determineWinner } = require('./src/script.js'); 
 
 describe('Pierre Feuille Ciseaux - Tests Unitaires', () => {
   test('Pierre bat Ciseaux', () => {
